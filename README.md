@@ -20,3 +20,11 @@ Returns a welcome message.
 GET /health
 
 Returns the service health status.
+
+## Container Image
+
+The CI pipeline automatically builds and publishes a Docker image to GitHub Container Registry.
+
+Image location:
+
+ghcr.io/<username>/devops-cicd-pipeline-lab/devops-cicd-demo:latest
