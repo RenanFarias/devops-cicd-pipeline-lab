@@ -15,27 +15,26 @@ jobs:
 
     steps:
 
-      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Python
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # Install dependencies
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
 
-      # Run basic import test
-      - name: Test application
+      - name: Run linter
         run: |
-          python -c "from app.main import app"
+          ruff check .
 
-      # Build Docker image
+      - name: Run tests
+        run: |
+          pytest
+
       - name: Build Docker image
         run: |
           docker build -t devops-cicd-demo .
